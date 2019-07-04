@@ -37,6 +37,8 @@ HISTFILESIZE=-1
 # if this is unset, then you won't have timestamps in your history...
 HISTTIMEFORMAT="| %Y-%m-%d %a %l:%M:%S %P |  "
 
+# read last month's history too
+history_file_read -d "1 month ago"
 history_file_read
 
 PROMPT_COMMAND='history_file_append'
