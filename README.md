@@ -12,7 +12,7 @@ Because an infinite history can quickly become unmanagable, I'd recommend using 
 function history_file_get() {
   # return the full path to the current history file
   # the output will update each month - even if your terminal is running for a long time
-	echo "${HOME}/.bash_history/history_$(date +'%Y-%m')"
+	echo "${HISTORY_OVERRIDE:-${HOME}/.bash_history/history_$(date +'%Y-%m')}"
 }
 
 function history_file_append() {
