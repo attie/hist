@@ -37,8 +37,9 @@ HISTFILESIZE=-1
 # if this is unset, then you won't have timestamps in your history...
 HISTTIMEFORMAT="| %Y-%m-%d %a %l:%M:%S %P |  "
 
-PROMPT_COMMAND='history_file_append'
 history_file_read
+
+PROMPT_COMMAND='history_file_append'
 ```
 
 ## Usage
