@@ -27,7 +27,7 @@ function history_file_read() {
   # read items from the history file
   local histfile="$(history_file_get "${@}")"
   local histdir="$(dirname "${histfile}")"
-  [ -d "${histdir}" ] && history -n "${histfile}"
+  [ -d "${histdir}" ] && history -r "${histfile}"
 }
 
 # don't limit the size of history files
