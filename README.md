@@ -12,12 +12,12 @@ Because an infinite history can quickly become unmanagable, I'd recommend using 
 function history_file_get() {
   # return the full path to the current history file
   # the output will update each month - even if your terminal is running for a long time
-	echo "${HISTORY_OVERRIDE:-${HOME}/.bash_history/history_$(date +'%Y-%m')}"
+	echo "${HISTORY_OVERRIDE:-${HOME}/.bash_history/history_$(date +'%Y-%m' "${@}")}"
 }
 
 function history_file_append() {
   # append new items to the history file
-  local histfile="$(history_file_get)"
+  local histfile="$(history_file_get "${@}")"
   local histdir="$(dirname "${histfile}")"
   [ ! -d "${histdir}" ] && mkdir -p "${histdir}"
 	history -a "${histfile}"
@@ -25,7 +25,7 @@ function history_file_append() {
 
 function history_file_read() {
   # read items from the history file
-  local histfile="$(history_file_get)"
+  local histfile="$(history_file_get "${@}")"
   local histdir="$(dirname "${histfile}")"
   [ -d "${histdir}" ] && history -n "${histfile}"
 }
