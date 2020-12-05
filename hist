@@ -7,7 +7,7 @@ from os.path import expanduser, basename
 from glob import glob
 from datetime import datetime
 
-histfiles = glob(expanduser('~/.bash_history/history_*'))
+histfiles = glob(expanduser('~/.bash_history/local/history_*'))
 histfiles = sorted(histfiles, key=lambda x: datetime.strptime(basename(x).rsplit('_',1)[-1], '%Y-%m'))
 histfiles = histfiles[-5:]
 
